@@ -17,6 +17,12 @@ module.exports = {
           this.setDataValue("products", val.join(";"));
         },
       },
+      sellerId:{
+        type: Sequelize.INTEGER,
+      },
+      buyerId:{
+        type: Sequelize.INTEGER,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

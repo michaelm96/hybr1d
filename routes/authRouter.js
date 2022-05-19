@@ -7,7 +7,7 @@ router.post("/register", async (req, res) => {
   try {
     const { name, email, password, type } = req.body;
 
-    if (name || email || password || type) {
+    if (!name || !email || !password || !type) {
       return res.status(404).json({
         message: "there are missing fields",
       });
@@ -42,7 +42,7 @@ router.post("/login", async (req, res) => {
         message: "Invalid email/password",
       });
     } 
-    
+
     const access_token = generateToken(user);
     return res.status(200).json({ access_token });
   } catch (error) {
